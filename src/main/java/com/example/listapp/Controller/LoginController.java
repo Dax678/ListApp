@@ -7,22 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/web-list")
-public class IndexController {
-    private final UserService userService;
-
-    public IndexController(UserService userService) {
-        this.userService = userService;
-    }
-
-    @GetMapping("/login")
+@RequestMapping
+public class LoginController {
+    @GetMapping("/web-list/login")
     public String getLoginView() {
         return "login";
     }
 
-    @GetMapping("/")
-    public String getIndexView(Model model) {
-
-        return "index";
+    @GetMapping
+    public String getIndexView() {
+        return "redirect:/web-list";
     }
 }

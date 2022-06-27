@@ -19,10 +19,10 @@
                     </svg></span><span>NOTE IT by Dax</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-5">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#" style="padding-right: 60px;">Notes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="padding-right: 60px;">New</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="padding-right: 60px;">Settings</a></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Logout</a>
+                    <li class="nav-item"><a class="nav-link active" href="#" style="padding-right: 60px;" th:href="@{/web-list}">Notes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="padding-right: 60px;" th:href="@{/web-list/newNote}">New</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="padding-right: 60px;" th:href="@{/web-list/settings}">Settings</a></li>
+                </ul><a class="btn btn-primary ms-md-2" role="button" href="#" th:href="@{/web-list/logout}">Logout</a>
             </div>
         </div>
     </nav>

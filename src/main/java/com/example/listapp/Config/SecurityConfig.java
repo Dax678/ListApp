@@ -35,24 +35,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/static/css/**", "/js/**", "/assets/**","/resources/**").permitAll()
                 .antMatchers("/web-list/api/**").hasRole(ADMIN.name())
                 .antMatchers("/web-list/login",
-                        "/web-list/").hasRole(USER.name())
+                        "/web-list/",
+                        "/web-list/newNote",
+                        "/web-list/settings").hasRole(USER.name())
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/web-list/login")
-                .permitAll()
-                .defaultSuccessUrl("/web-list", true)
-                .passwordParameter("login-password") //DEFAULT password
-                .usernameParameter("login-username") //DEFAULT username
+                    .loginPage("/web-list/login")
+                    .permitAll()
+                    .defaultSuccessUrl("/web-list", true)
+                    .passwordParameter("login-password") //DEFAULT password
+                    .usernameParameter("login-username") //DEFAULT username
                 .and()
                 .logout()
-                .logoutUrl("/web-list/logout")
-                .logoutRequestMatcher(new AntPathRequestMatcher("/web-list/logout", "GET"))
-                .clearAuthentication(true)
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID", "remember-me")
-                .logoutSuccessUrl("/web-list/login");
+                    .logoutUrl("/web-list/logout")
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/web-list/logout", "GET"))
+                    .clearAuthentication(true)
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID", "remember-me")
+                    .logoutSuccessUrl("/web-list/login");
     }
 
     @Override
